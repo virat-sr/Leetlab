@@ -3,6 +3,8 @@ import dotenv from "dotenv"
 
 import cookieParser from "cookie-parser"
 import authRoutes from "./routes/auth.routes.js"
+import problemRoutes from "./routes/problem.routes.js"
+import ip from 'ip'
 
 dotenv.config()
 const app = express()
@@ -15,9 +17,11 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/v1/auth", authRoutes)
+app.use("/api/v1/problems", problemRoutes)
 
 
 
 app.listen(8080, () => {
     console.log(" Server runing at port 8080.")
+    console.log(ip.address())
 })
