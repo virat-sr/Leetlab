@@ -63,17 +63,92 @@ export const createProblem = async(req, res) => {
 
 }
 export const getAllProblems = async(req, res) => {
+    try {
+        const problems = await db.problem.findMany()
+
+        if(!problems){
+            return res.status(404).json({
+                success: true,
+                message: 'Message fteched successfully.',
+                problems
+            })
+        }
+
+
+    } catch (error) {
+        return res.status(500).json({
+            error: ' error while Fetching problem.'
+        })
+    }
 
 }
+
 export const getProblemById = async(req, res) => {
+    const {id} = req.params
 
+    try {
+        const problem = await db.problem.findUnique({
+            where:{
+                id
+            }
+        })
+
+        if(!problem) {
+            return res.status(404).json({
+                error:'Problem not found.'
+            })
+        }
+
+        return res.status(200).json({
+            success:true,
+            message:"Message Created Successfully.",
+            problem
+        })
+    } catch (error) {
+        return res.status(500).json({
+            error: 'Error while fetching by id.'
+        })
+        
+    }
 }
+
 export const updateProblem = async(req, res) => {
-
+    //id,
+    //id-->problem
+    //create problem
+    //Assignment🔥
 }
+
 export const deleteProblem = async(req, res) => {
 
+    const {id} = req.params
+    try {
+        const problem = await db.problem.findUnique({
+            where:{id}
+        })
+    
+        if(!problem) {
+            return res.status(404).json({
+                error:'Problem not found.'
+            })
+        }
+    
+        await db.problem.delete({
+            where:{id}
+        })
+    
+        res.status(200).json({
+            success:true,
+            message:'Problem delted successfully.'
+        })//why not return here????
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            error:'Error while deleting Problem.'
+        })
+    }
 }
+
 export const getAllProblemsSolvedByUser = async(req, res) => {
 
 }

@@ -1,1 +1,5 @@
 75250652c6a7bd7395a430469ad73259691a14a508d5604afb848afda762f8d8
+
+
+####TODO
+npx prisma studio
