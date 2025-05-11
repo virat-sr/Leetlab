@@ -76,6 +76,11 @@ export const getAllProblems = async(req, res) => {
                 problems
             })
         }
+        res.status(200).json({
+            sucess: true,
+            message: "All Problems Fetched Successfully",
+            problems,
+          });
 
 
     } catch (error) {
