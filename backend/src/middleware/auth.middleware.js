@@ -41,7 +41,7 @@ export const authMiddleware = async(req, res, next) => {
             })
         }
 
-        res.user = user
+        req.user = user
         next()
     } catch (error) {
         console.log('Error authenticating uer',error)
@@ -53,7 +53,7 @@ export const authMiddleware = async(req, res, next) => {
 
 export const checkAdmin = async(req, res, next) => {
     try {
-        const userId = req.user.id
+    const userId = req.user.id
     const user = await db.user.findUnique({
         where:{
             id:userId,

@@ -139,9 +139,9 @@ exports.Prisma.ProblemScalarFieldEnum = {
   constraints: 'constraints',
   hints: 'hints',
   editorials: 'editorials',
-  testcases: 'testcases',
-  codeSnippets: 'codeSnippets',
-  referenceSolutions: 'referenceSolutions',
+  testCases: 'testCases',
+  codeSnippet: 'codeSnippet',
+  referenceSolution: 'referenceSolution',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

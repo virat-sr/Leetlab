@@ -8,14 +8,14 @@ export const createProblem = async(req, res) => {
      * Inside the loop : 1. Lang Id from judge0
      */
     
-        const {title, description, difficulty, tags, examples, constraints, testcases, codeSnippets, referenceSolutions} = req.body
-        if(req.user.role !== 'Admin') {
+        const {title, description, difficulty, tags, examples, constraints, testCases, codeSnippet, referenceSolution} = req.body
+        if(req.user.role !== 'ADMIN') {
             return res.status(403).json({
                 error:'You are not allowed to create a problem.'
             })
         }
         try {
-            for (const [language, solutionCode] of Object.entries(referenceSolutions) ) {
+            for (const [language, solutionCode] of Object.entries(referenceSolution) ) {
                 const languageId = getJudge0LanguageId(language)
 
                 if(!languageId) {
@@ -23,7 +23,7 @@ export const createProblem = async(req, res) => {
                         error:' Language not supported. '
                     })
                 }
-                const submissions = testcases.map(({input, output})=>({
+                const submissions = testCases.map(({input, output})=>({
                     source_code: solutionCode,
                     language_id:languageId,
                     stdin: input,
@@ -37,11 +37,11 @@ export const createProblem = async(req, res) => {
                 const results = await pollBatchResults(tokens)
 
                 for(let i =0;i<results.length;i++) {
-                    const res = results[i]
+                    const result = results[i]
 
-                    if (results.status.id !== 3 ) {
+                    if (result.status.id !== 13 ) { // changed to 13
                         return res.status(400).json({
-                            error:'Test cases failed'
+                            error: `Testcase ${i + 1} failed for language ${language}`,
                         })
                     }
                 }
@@ -49,7 +49,7 @@ export const createProblem = async(req, res) => {
                 //Save the problem in DB
                 const newProblem = await db.problem.create({
                     data:{
-                        title, description, difficulty, tags, examples, constraints, testcases, codeSnippets, referenceSolutions, userId: req.user.id,
+                        title, description, difficulty, tags, examples, constraints, testCases, codeSnippet, referenceSolution, userId: req.user.id,
                     },
 
                 })
@@ -58,7 +58,10 @@ export const createProblem = async(req, res) => {
             }
         
         } catch (error) {
-            
+            console.log('Error Creating a problem ',error)
+            return res.status(500).json({
+                error: ' error while creating problem.'
+            })
         }
 
 }
