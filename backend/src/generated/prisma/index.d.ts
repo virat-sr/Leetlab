@@ -7544,7 +7544,7 @@ export namespace Prisma {
   export type PlaylistMinAggregateOutputType = {
     id: string | null
     name: string | null
-    dessciption: string | null
+    description: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -7553,7 +7553,7 @@ export namespace Prisma {
   export type PlaylistMaxAggregateOutputType = {
     id: string | null
     name: string | null
-    dessciption: string | null
+    description: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -7562,7 +7562,7 @@ export namespace Prisma {
   export type PlaylistCountAggregateOutputType = {
     id: number
     name: number
-    dessciption: number
+    description: number
     userId: number
     createdAt: number
     updatedAt: number
@@ -7573,7 +7573,7 @@ export namespace Prisma {
   export type PlaylistMinAggregateInputType = {
     id?: true
     name?: true
-    dessciption?: true
+    description?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -7582,7 +7582,7 @@ export namespace Prisma {
   export type PlaylistMaxAggregateInputType = {
     id?: true
     name?: true
-    dessciption?: true
+    description?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -7591,7 +7591,7 @@ export namespace Prisma {
   export type PlaylistCountAggregateInputType = {
     id?: true
     name?: true
-    dessciption?: true
+    description?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -7673,7 +7673,7 @@ export namespace Prisma {
   export type PlaylistGroupByOutputType = {
     id: string
     name: string
-    dessciption: string | null
+    description: string | null
     userId: string
     createdAt: Date
     updatedAt: Date
@@ -7699,7 +7699,7 @@ export namespace Prisma {
   export type PlaylistSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    dessciption?: boolean
+    description?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -7711,7 +7711,7 @@ export namespace Prisma {
   export type PlaylistSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    dessciption?: boolean
+    description?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -7721,7 +7721,7 @@ export namespace Prisma {
   export type PlaylistSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    dessciption?: boolean
+    description?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -7731,13 +7731,13 @@ export namespace Prisma {
   export type PlaylistSelectScalar = {
     id?: boolean
     name?: boolean
-    dessciption?: boolean
+    description?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PlaylistOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "dessciption" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["playlist"]>
+  export type PlaylistOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["playlist"]>
   export type PlaylistInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     problems?: boolean | Playlist$problemsArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -7759,7 +7759,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      dessciption: string | null
+      description: string | null
       userId: string
       createdAt: Date
       updatedAt: Date
@@ -8190,7 +8190,7 @@ export namespace Prisma {
   interface PlaylistFieldRefs {
     readonly id: FieldRef<"Playlist", 'String'>
     readonly name: FieldRef<"Playlist", 'String'>
-    readonly dessciption: FieldRef<"Playlist", 'String'>
+    readonly description: FieldRef<"Playlist", 'String'>
     readonly userId: FieldRef<"Playlist", 'String'>
     readonly createdAt: FieldRef<"Playlist", 'DateTime'>
     readonly updatedAt: FieldRef<"Playlist", 'DateTime'>
@@ -9800,7 +9800,7 @@ export namespace Prisma {
   export const PlaylistScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    dessciption: 'dessciption',
+    description: 'description',
     userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -10434,7 +10434,7 @@ export namespace Prisma {
     NOT?: PlaylistWhereInput | PlaylistWhereInput[]
     id?: StringFilter<"Playlist"> | string
     name?: StringFilter<"Playlist"> | string
-    dessciption?: StringNullableFilter<"Playlist"> | string | null
+    description?: StringNullableFilter<"Playlist"> | string | null
     userId?: StringFilter<"Playlist"> | string
     createdAt?: DateTimeFilter<"Playlist"> | Date | string
     updatedAt?: DateTimeFilter<"Playlist"> | Date | string
@@ -10445,7 +10445,7 @@ export namespace Prisma {
   export type PlaylistOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    dessciption?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10460,7 +10460,7 @@ export namespace Prisma {
     OR?: PlaylistWhereInput[]
     NOT?: PlaylistWhereInput | PlaylistWhereInput[]
     name?: StringFilter<"Playlist"> | string
-    dessciption?: StringNullableFilter<"Playlist"> | string | null
+    description?: StringNullableFilter<"Playlist"> | string | null
     userId?: StringFilter<"Playlist"> | string
     createdAt?: DateTimeFilter<"Playlist"> | Date | string
     updatedAt?: DateTimeFilter<"Playlist"> | Date | string
@@ -10471,7 +10471,7 @@ export namespace Prisma {
   export type PlaylistOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    dessciption?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10486,7 +10486,7 @@ export namespace Prisma {
     NOT?: PlaylistScalarWhereWithAggregatesInput | PlaylistScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Playlist"> | string
     name?: StringWithAggregatesFilter<"Playlist"> | string
-    dessciption?: StringNullableWithAggregatesFilter<"Playlist"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Playlist"> | string | null
     userId?: StringWithAggregatesFilter<"Playlist"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Playlist"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Playlist"> | Date | string
@@ -11070,7 +11070,7 @@ export namespace Prisma {
   export type PlaylistCreateInput = {
     id?: string
     name: string
-    dessciption?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     problems?: ProblemInPlaylistCreateNestedManyWithoutPlayListInput
@@ -11080,7 +11080,7 @@ export namespace Prisma {
   export type PlaylistUncheckedCreateInput = {
     id?: string
     name: string
-    dessciption?: string | null
+    description?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11090,7 +11090,7 @@ export namespace Prisma {
   export type PlaylistUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dessciption?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     problems?: ProblemInPlaylistUpdateManyWithoutPlayListNestedInput
@@ -11100,7 +11100,7 @@ export namespace Prisma {
   export type PlaylistUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dessciption?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11110,7 +11110,7 @@ export namespace Prisma {
   export type PlaylistCreateManyInput = {
     id?: string
     name: string
-    dessciption?: string | null
+    description?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11119,7 +11119,7 @@ export namespace Prisma {
   export type PlaylistUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dessciption?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11127,7 +11127,7 @@ export namespace Prisma {
   export type PlaylistUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dessciption?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11708,7 +11708,7 @@ export namespace Prisma {
   export type PlaylistCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    dessciption?: SortOrder
+    description?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11717,7 +11717,7 @@ export namespace Prisma {
   export type PlaylistMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    dessciption?: SortOrder
+    description?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11726,7 +11726,7 @@ export namespace Prisma {
   export type PlaylistMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    dessciption?: SortOrder
+    description?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12638,7 +12638,7 @@ export namespace Prisma {
   export type PlaylistCreateWithoutUserInput = {
     id?: string
     name: string
-    dessciption?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     problems?: ProblemInPlaylistCreateNestedManyWithoutPlayListInput
@@ -12647,7 +12647,7 @@ export namespace Prisma {
   export type PlaylistUncheckedCreateWithoutUserInput = {
     id?: string
     name: string
-    dessciption?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     problems?: ProblemInPlaylistUncheckedCreateNestedManyWithoutPlayListInput
@@ -12785,7 +12785,7 @@ export namespace Prisma {
     NOT?: PlaylistScalarWhereInput | PlaylistScalarWhereInput[]
     id?: StringFilter<"Playlist"> | string
     name?: StringFilter<"Playlist"> | string
-    dessciption?: StringNullableFilter<"Playlist"> | string | null
+    description?: StringNullableFilter<"Playlist"> | string | null
     userId?: StringFilter<"Playlist"> | string
     createdAt?: DateTimeFilter<"Playlist"> | Date | string
     updatedAt?: DateTimeFilter<"Playlist"> | Date | string
@@ -13624,7 +13624,7 @@ export namespace Prisma {
   export type PlaylistCreateWithoutProblemsInput = {
     id?: string
     name: string
-    dessciption?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPlaylistsInput
@@ -13633,7 +13633,7 @@ export namespace Prisma {
   export type PlaylistUncheckedCreateWithoutProblemsInput = {
     id?: string
     name: string
-    dessciption?: string | null
+    description?: string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13703,7 +13703,7 @@ export namespace Prisma {
   export type PlaylistUpdateWithoutProblemsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dessciption?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPlaylistsNestedInput
@@ -13712,7 +13712,7 @@ export namespace Prisma {
   export type PlaylistUncheckedUpdateWithoutProblemsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dessciption?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13812,7 +13812,7 @@ export namespace Prisma {
   export type PlaylistCreateManyUserInput = {
     id?: string
     name: string
-    dessciption?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -13948,7 +13948,7 @@ export namespace Prisma {
   export type PlaylistUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dessciption?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     problems?: ProblemInPlaylistUpdateManyWithoutPlayListNestedInput
@@ -13957,7 +13957,7 @@ export namespace Prisma {
   export type PlaylistUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dessciption?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     problems?: ProblemInPlaylistUncheckedUpdateManyWithoutPlayListNestedInput
@@ -13966,7 +13966,7 @@ export namespace Prisma {
   export type PlaylistUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    dessciption?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

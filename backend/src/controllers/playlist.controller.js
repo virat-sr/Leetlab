@@ -1,3 +1,5 @@
+import { db } from "../libs/db.js"
+
 export const createPlaylist = async (req, res) => {
     try {
         const {name, description} = req.body
@@ -75,7 +77,7 @@ export const getPlaylistDetails = async (req, res) => {
         res.status(200).json({
             success:true,
             message:'Playllist fethced successfully',
-            playlists
+            playlist
         })
     } catch (error) {
         console.log('Error creating playlist', error)

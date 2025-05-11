@@ -190,7 +190,7 @@ exports.Prisma.ProblemSolvedScalarFieldEnum = {
 exports.Prisma.PlaylistScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  dessciption: 'dessciption',
+  description: 'description',
   userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
