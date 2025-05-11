@@ -89,7 +89,7 @@ export const getPlaylistDetails = async (req, res) => {
 
 export const addProblemToPlaylist = async (req, res) => {
     const {playlistId} = req.params
-    const {problemIds} = req.body
+    const {problemIds} = req.body // Will be an array
       try {
         if(!Array.isArray(problemIds) || problemIds.length === 0) {
             return res.status(400).json({
