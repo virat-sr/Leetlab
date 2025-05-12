@@ -96,10 +96,10 @@ export const addProblemToPlaylist = async (req, res) => {
                 error:'Invalid or missing problemIds.'
             })
         }
-        const problemsInPlaylist = await db.problemsInPlaylist.createMany({
-            data:problemIds.map((problemIds) => ({
+        const problemsInPlaylist = await db.problemInPlaylist.createMany({
+            data:problemIds.map((problemId) => ({
                 playlistId,
-                problemIds
+                problemId
             }))
         })
         res.status(201).json({
