@@ -1,4 +1,8 @@
 import axios from 'axios';
+
+import dotenv from 'dotenv'
+dotenv.config()
+const x = process.env.JUDGE0_API_KEY
 export const getJudge0LanguageId = (Language) => {
     const languageMap = {
         "PYTHON":71,
@@ -9,9 +13,18 @@ export const getJudge0LanguageId = (Language) => {
 }
 
 export const submitBatch = async(submissions) => {
-    const {data} = await axios.post(`${process.env.JUDGE0_API_URL}/submissions/batch?base64_encoded=false`,{
-        submissions
-    })
+    const options = {
+        method: "POST",
+        url: 'https://judge0-ce.p.sulu.sh/submissions/batch',
+        params: { base64_encoded: "false" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${x}`,  
+        },
+        data: { submissions },
+      };
+    const {data} = await axios.request(options)
     console.log('tokens data clg',data)
     return data
 }
@@ -21,12 +34,17 @@ const sleep = (ms) => {
 export const pollBatchResults = async(tokens) => {
     //Polling mechanism
     while(true) {
-        const {data} = await axios.get(`${process.env.JUDGE0_API_URL}/submissions/batch`, {
-            params: {
-                tokens: tokens.join(','),
-                base64_encoded:false
-            }
-        })
+        const options = {
+            method: "GET",
+            url: 'https://judge0-ce.p.sulu.sh/submissions/batch',
+            params: { base64_encoded: "false",tokens: tokens.join(','), },
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: `Bearer ${x}`
+            },
+          };
+        const {data} = await axios.request(options)
         console.log('1111',data)
         const results = data?.submissions
         const isAllDone = results.every(

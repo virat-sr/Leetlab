@@ -45,8 +45,8 @@ export const executeCode = async (req, res) => {
     let allPassed = true;
     const detailedResults = results.map((result, i) => {
       const stdout = result.stdout?.trim(); //Judge0 ne hume diya hai
-      const expected_output = expected_outputs[i]?.trim();
-      const passed = stdout === expected_output;
+      const expected_output_by_judge0 = expected_output[i]?.trim();
+      const passed = stdout === expected_output_by_judge0;
 
       if (!passed) allPassed = false;
 
@@ -54,7 +54,7 @@ export const executeCode = async (req, res) => {
         testCase: i + 1,
         passed,
         stdout,
-        expected: expected_output,
+        expected: expected_output_by_judge0,
         stderr: result.stderr || null,
         compile_output: result.compile_output || null,
         status: result.status.description,
@@ -84,7 +84,7 @@ export const executeCode = async (req, res) => {
         stderr: detailedResults.some((r) => r.stderr)
           ? JSON.stringify(detailedResults.map((r) => r.stderr))
           : null,
-        compileOutput: detailedResults.some((r) => r.compile_output)
+        compiledOutput: detailedResults.some((r) => r.compile_output)
           ? JSON.stringify(detailedResults.map((r) => r.compile_output))
           : null,
         status: allPassed ? "Accepted" : "Wrong Answer",
@@ -121,7 +121,7 @@ export const executeCode = async (req, res) => {
       stdout: result.stdout,
       expected: result.expected,
       stderr: result.stderr,
-      compileOutput: result.compile_output,
+      compiledOutput: result.compile_output,
       status: result.status,
       memory: result.memory,
       time: result.time,
@@ -131,7 +131,7 @@ export const executeCode = async (req, res) => {
       data: testCaseResults,
     });
 
-    const submissionWithTestCase = await submission.findUnique({
+    const submissionWithTestCase = await db.submission.findUnique({
       where: {
         id: submission.id,
       },
