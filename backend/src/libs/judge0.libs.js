@@ -27,15 +27,14 @@ export const pollBatchResults = async(tokens) => {
                 base64_encoded:false
             }
         })
-        const results = data.submissions
+        console.log('1111',data)
+        const results = data?.submissions
         const isAllDone = results.every(
             (r)=>r.status.id !== 1 && r.status.id !== 2)
         
         if (isAllDone) return results
 
         await sleep(1000)
-        
-            
     }
 }
 
